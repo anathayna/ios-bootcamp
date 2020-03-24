@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		365563E124294BDB0034C7E9 /* i am poor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "i am poor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		365563E124294BDB0034C7E9 /* ipoor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ipoor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		365563E424294BDB0034C7E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		365563E624294BDB0034C7E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		365563E824294BDB0034C7E9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -40,7 +40,7 @@
 		365563D824294BDB0034C7E9 = {
 			isa = PBXGroup;
 			children = (
-				365563E324294BDB0034C7E9 /* i am poor */,
+				365563E324294BDB0034C7E9 /* ipoor */,
 				365563E224294BDB0034C7E9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,12 +48,12 @@
 		365563E224294BDB0034C7E9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				365563E124294BDB0034C7E9 /* i am poor.app */,
+				365563E124294BDB0034C7E9 /* ipoor.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		365563E324294BDB0034C7E9 /* i am poor */ = {
+		365563E324294BDB0034C7E9 /* ipoor */ = {
 			isa = PBXGroup;
 			children = (
 				365563E424294BDB0034C7E9 /* AppDelegate.swift */,
@@ -64,15 +64,15 @@
 				365563EF24294BE40034C7E9 /* LaunchScreen.storyboard */,
 				365563F224294BE40034C7E9 /* Info.plist */,
 			);
-			path = "i am poor";
+			path = ipoor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		365563E024294BDB0034C7E9 /* i am poor */ = {
+		365563E024294BDB0034C7E9 /* ipoor */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 365563F524294BE40034C7E9 /* Build configuration list for PBXNativeTarget "i am poor" */;
+			buildConfigurationList = 365563F524294BE40034C7E9 /* Build configuration list for PBXNativeTarget "ipoor" */;
 			buildPhases = (
 				365563DD24294BDB0034C7E9 /* Sources */,
 				365563DE24294BDB0034C7E9 /* Frameworks */,
@@ -82,9 +82,9 @@
 			);
 			dependencies = (
 			);
-			name = "i am poor";
+			name = ipoor;
 			productName = "i am poor";
-			productReference = 365563E124294BDB0034C7E9 /* i am poor.app */;
+			productReference = 365563E124294BDB0034C7E9 /* ipoor.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,7 +102,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 365563DC24294BDB0034C7E9 /* Build configuration list for PBXProject "i am poor" */;
+			buildConfigurationList = 365563DC24294BDB0034C7E9 /* Build configuration list for PBXProject "ipoor" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -115,7 +115,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				365563E024294BDB0034C7E9 /* i am poor */,
+				365563E024294BDB0034C7E9 /* ipoor */,
 			);
 		};
 /* End PBXProject section */
@@ -317,7 +317,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		365563DC24294BDB0034C7E9 /* Build configuration list for PBXProject "i am poor" */ = {
+		365563DC24294BDB0034C7E9 /* Build configuration list for PBXProject "ipoor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				365563F324294BE40034C7E9 /* Debug */,
@@ -326,7 +326,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		365563F524294BE40034C7E9 /* Build configuration list for PBXNativeTarget "i am poor" */ = {
+		365563F524294BE40034C7E9 /* Build configuration list for PBXNativeTarget "ipoor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				365563F624294BE40034C7E9 /* Debug */,
