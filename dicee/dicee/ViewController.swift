@@ -10,9 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var diceeImageOne: UIImageView!
+    @IBOutlet var diceeImageTwo: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        diceeImageOne.image = #imageLiteral(resourceName: "DiceTwo")
+        diceeImageOne.alpha = 0.5
+        diceeImageTwo.image = #imageLiteral(resourceName: "DiceThree")
     }
 
 
