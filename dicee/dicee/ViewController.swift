@@ -13,16 +13,20 @@ class ViewController: UIViewController {
     @IBOutlet var diceeImageOne: UIImageView!
     @IBOutlet var diceeImageTwo: UIImageView!
     
+    var leftDiceeNumber = 0
+    var rightDiceeNumber = 5
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        diceeImageOne.image = #imageLiteral(resourceName: "DiceTwo")
-        diceeImageTwo.image = #imageLiteral(resourceName: "DiceThree")
     }
 
     @IBAction func rollButtonPressed(_ sender: UIButton) {
-        diceeImageOne.image = #imageLiteral(resourceName: "DiceFour")
-        diceeImageTwo.image = #imageLiteral(resourceName: "DiceFive")
+        diceeImageOne.image = [#imageLiteral(resourceName: "DiceOne"), #imageLiteral(resourceName: "DiceTwo"), #imageLiteral(resourceName: "DiceThree"), #imageLiteral(resourceName: "DiceFour"), #imageLiteral(resourceName: "DiceFive"), #imageLiteral(resourceName: "DiceSix")][leftDiceeNumber]
+        diceeImageTwo.image = [#imageLiteral(resourceName: "DiceOne"), #imageLiteral(resourceName: "DiceTwo"), #imageLiteral(resourceName: "DiceThree"), #imageLiteral(resourceName: "DiceFour"), #imageLiteral(resourceName: "DiceFive"), #imageLiteral(resourceName: "DiceSix")][rightDiceeNumber]
+        
+        leftDiceeNumber = leftDiceeNumber + 1
+        rightDiceeNumber = rightDiceeNumber - 1
     }
     
 }
