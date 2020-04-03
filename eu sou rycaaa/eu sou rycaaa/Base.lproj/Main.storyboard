@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16095" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16084.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,19 +15,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="eu sou rycaaa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0oM-YK-h6J">
-                                <rect key="frame" x="107" y="156" width="201" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eu sou rycaaa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0oM-YK-h6J">
+                                <rect key="frame" x="104.5" y="156" width="205" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="lKm-yq-AnG"/>
+                                    <constraint firstAttribute="width" constant="205" id="zHx-ua-oLV"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="textColor" red="0.87843137250000003" green="0.73333333329999995" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="eu-sou-ryca" translatesAutoresizingMaskIntoConstraints="NO" id="RlT-53-CGg">
-                                <rect key="frame" x="73" y="313" width="270" height="270"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eu-sou-ryca" translatesAutoresizingMaskIntoConstraints="NO" id="RlT-53-CGg">
+                                <rect key="frame" x="44.5" y="331.5" width="325" height="233"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="233" id="qh9-bM-KzB"/>
+                                    <constraint firstAttribute="width" constant="325" id="yyw-hF-HkK"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="RlT-53-CGg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="W21-aH-8mX"/>
+                            <constraint firstItem="0oM-YK-h6J" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="h3L-8W-uzu"/>
+                            <constraint firstItem="0oM-YK-h6J" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="112" id="kxc-fY-Skd"/>
+                            <constraint firstItem="RlT-53-CGg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="zFW-LC-wI9"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
