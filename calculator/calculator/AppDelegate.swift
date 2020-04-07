@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  calculator layout
+//  calculator
 //
-//  Created by Ana Thayna Franca on 03/04/20.
+//  Created by Ana Thayna Franca on 07/04/20.
 //  Copyright © 2020 Ana Thayna Franca. All rights reserved.
 //
 
