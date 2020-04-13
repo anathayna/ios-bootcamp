@@ -17,7 +17,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
 
-    @IBAction func buttonC(_ sender: UIButton) {
+    @IBAction func buttonPressed(_ sender: UIButton) {
+        //print(sender.currentTitle)
         playSound()
     }
     
