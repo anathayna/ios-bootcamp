@@ -25,7 +25,7 @@
 		3619AEF724475D6A0083D648 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3619AEFA24475D6A0083D648 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3619AEFC24475D6A0083D648 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3619AF0224475EB20083D648 /* alarm_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = alarm_sound.mp3; path = "../../../../../Downloads/EggTimer-iOS13/EggTimer/alarm_sound.mp3"; sourceTree = "<group>"; };
+		3619AF0224475EB20083D648 /* alarm_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alarm_sound.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
