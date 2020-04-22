@@ -10,32 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let softTime = 2
-    let mediumTime = 5
-    let hardTime = 12
+    let eggTime = ["Soft": 5, "Medium": 7, "Hard": 12]
     
     @IBAction func timerButton(_ sender: UIButton) {
         
-        let timer = sender.currentTitle
+        let timer = sender.currentTitle!
         
-        switch timer {
-        case "Soft":
-            print(softTime)
-        case "Medium":
-            print(mediumTime)
-        case "Hard":
-            print(hardTime)
-        default:
-            print("Error")
-        }
+        let result = eggTime[timer]
         
-//        if timer == "Soft" {
-//            print(softTime)
-//        } else if timer == "Medium" {
-//            print(mediumTime)
-//        } else {
-//            print(hardTime)
-//        }
+        print(result)
         
     }
     
