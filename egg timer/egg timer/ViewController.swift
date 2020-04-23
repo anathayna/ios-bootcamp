@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var progressBar: UIProgressView!
     
     let eggTime = ["Soft": 5, "Medium": 7, "Hard": 12]
     
@@ -20,10 +21,10 @@ class ViewController: UIViewController {
     
     @IBAction func timerButton(_ sender: UIButton) {
         
+        progressBar.progress = 1.0
+        
         timer.invalidate()
-        
         let hardness = sender.currentTitle!
-        
         secondsRemaining = eggTime[hardness]!
         
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
