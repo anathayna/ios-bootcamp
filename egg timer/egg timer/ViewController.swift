@@ -12,29 +12,26 @@ class ViewController: UIViewController {
 
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var progressBar: UIProgressView!
-    
     let eggTime = ["Soft": 5, "Medium": 7, "Hard": 12]
-    
-    var secondsRemaining = 60
-    
+    var totalTime = 0
+    var secondsPass = 0
     var timer = Timer()
     
     @IBAction func timerButton(_ sender: UIButton) {
         
-        progressBar.progress = 1.0
-        
         timer.invalidate()
         let hardness = sender.currentTitle!
-        secondsRemaining = eggTime[hardness]!
+        totalTime = eggTime[hardness]!
         
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         
     }
     
     @objc func updateTimer() {
-        if secondsRemaining > 0 {
-            print("\(secondsRemaining) seconds")
-            secondsRemaining -= 1
+        if secondsPass < totalTime {
+            let percentageProgress = secondsPass / totalTime
+            progressBar.progress = Float(percentageProgress)
+            secondsPass += 1
         } else {
             timer.invalidate()
             titleLabel.text = "DONE!!"
