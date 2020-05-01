@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		365CD45E245CA32700C8CBDE /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CD45D245CA32700C8CBDE /* SecondViewController.swift */; };
 		36933E26245733F000326E67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36933E25245733F000326E67 /* AppDelegate.swift */; };
 		36933E28245733F000326E67 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36933E27245733F000326E67 /* SceneDelegate.swift */; };
 		36933E2A245733F000326E67 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36933E29245733F000326E67 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		365CD45D245CA32700C8CBDE /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		36933E22245733F000326E67 /* imc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = imc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36933E25245733F000326E67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36933E27245733F000326E67 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				36933E29245733F000326E67 /* ViewController.swift */,
+				365CD45D245CA32700C8CBDE /* SecondViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				365CD45E245CA32700C8CBDE /* SecondViewController.swift in Sources */,
 				36933E2A245733F000326E67 /* ViewController.swift in Sources */,
 				36933E26245733F000326E67 /* AppDelegate.swift in Sources */,
 				36933E28245733F000326E67 /* SceneDelegate.swift in Sources */,
