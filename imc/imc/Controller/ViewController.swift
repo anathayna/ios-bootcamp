@@ -35,6 +35,10 @@ class ViewController: UIViewController {
         
         let imc = weight / pow(height, 2)
         print(imc)
+        
+        let secondVC = SecondViewController()
+        secondVC.imc = String(format: "%.1f", imc)
+        self.present(secondVC, animated: true, completion: nil)
     }
 }
 
