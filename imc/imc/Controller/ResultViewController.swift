@@ -11,6 +11,8 @@ import UIKit
 class ResultViewController: UIViewController {
     
     var imc: String?
+    var advice: String?
+    var color: UIColor?
     
     @IBOutlet var imcLabel: UILabel!
     @IBOutlet var adviceLabel: UILabel!
@@ -19,6 +21,8 @@ class ResultViewController: UIViewController {
         super.viewDidLoad()
         
         imcLabel.text = imc
+        adviceLabel.text = advice
+        view.backgroundColor = color
     }
 
     @IBAction func recalculatePress(_ sender: UIButton) {
