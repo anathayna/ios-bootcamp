@@ -6,7 +6,7 @@
 //  Copyright © 2020 Ana Thayna Franca. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct QuizBrain {
     let quiz = [
