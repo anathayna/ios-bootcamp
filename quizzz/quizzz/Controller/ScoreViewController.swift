@@ -1,8 +1,8 @@
 //
 //  ScoreViewController.swift
-//  quizzler
+//  quizzz
 //
-//  Created by Ana Thayna Franca on 05/05/20.
+//  Created by Ana Thayna Franca on 06/05/20.
 //  Copyright © 2020 Ana Thayna Franca. All rights reserved.
 //
 
@@ -23,5 +23,5 @@ class ScoreViewController: UIViewController {
     @IBAction func playAgainPress(_ sender: UIButton) {
         self.performSegue(withIdentifier: "goBack", sender: self)
     }
-    
+
 }

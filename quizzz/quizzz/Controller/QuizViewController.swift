@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class QuizViewController: UIViewController {
     
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var progressBar: UIProgressView!
@@ -39,9 +39,22 @@ class ViewController: UIViewController {
             sender.backgroundColor = UIColor.red
         }
         
-        quizBrain.nextQuestion()
+        if quizBrain.questionNumber + 1 < quizBrain.quiz.count {
+            quizBrain.questionNumber += 1
+        } else {
+            self.performSegue(withIdentifier: "goToScore", sender: self)
+        }
+        
+        //quizBrain.nextQuestion()
         
         Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(updateUI), userInfo: nil, repeats: false)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToScore" {
+            let destinationVC = segue.destination as! ScoreViewController
+            destinationVC.score = "Score: \(quizBrain.getScore())!!!"
+        }
     }
     
     @objc func updateUI() {
