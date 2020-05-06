@@ -42,7 +42,7 @@ struct QuizBrain {
         return score
     }
     
-     mutating func nextQuestion() {
+    mutating func nextQuestion() {
         
         if questionNumber + 1 < quiz.count {
             questionNumber += 1
