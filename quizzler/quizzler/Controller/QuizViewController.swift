@@ -40,6 +40,7 @@ class QuizViewController: UIViewController {
             self.performSegue(withIdentifier: "goToScore", sender: self)
         }
         
+        //quizBrain.nextQuestion()
         
         Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(updateUI), userInfo: nil, repeats: false)
     }
