@@ -120,7 +120,7 @@
         <!--Score View Controller-->
         <scene sceneID="cXs-L0-mFF">
             <objects>
-                <viewController id="Zv6-ky-Be3" customClass="ScoreViewController" customModule="quizzler" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Zv6-ky-Be3" customClass="ScoreViewController" customModule="quizzz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yG1-jy-Khc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
