@@ -18,6 +18,5 @@ class WeatherViewController: UIViewController {
         super.viewDidLoad()
     }
 
-
 }
 
