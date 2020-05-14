@@ -6,10 +6,6 @@
 //  Copyright © 2020 Ana Thayna Franca. All rights reserved.
 //
 
-//API Key d712dea299c988a43cbe05fdc55ff6ce
-//http://api.openweathermap.org/data/2.5/weather?q=brazil&appid=d712dea299c988a43cbe05fdc55ff6ce
-//http://api.openweathermap.org/data/2.5/weather?appid=d712dea299c988a43cbe05fdc55ff6ce&q=brazil&units=metric
-
 import Foundation
 
 struct WeatherManager {
@@ -17,18 +13,13 @@ struct WeatherManager {
     
     func fetchWeather(cityName: String) {
         let urlString = "\(weatherURL)&q=\(cityName)"
-        performRequest(urlString: urlString)    }
+        self.performRequest(urlString: urlString)
+    }
     
     func performRequest(urlString: String) {
-        // 1. Create URL
-        
         if let url = URL(string: urlString) {
-            // 2. Create a URLSession
             
             let session = URLSession(configuration: .default)
-            
-            // 3. Give session task
-            
             let task = session.dataTask(with: url) { (data, response, error) in
                 if error != nil {
                     print(error!)
@@ -36,15 +27,22 @@ struct WeatherManager {
                 }
                 
                 if let safeData = data {
-                    let dataString = String(data: safeData, encoding: .utf8)
-                    print(dataString)
+                    self.parseJSON(weatherData: safeData)
                 }
             }
             
-            // 4. Start task
-            
             task.resume()
             
+        }
+    }
+    
+    func parseJSON(weatherData: Data) {
+        let decoder = JSONDecoder()
+        do {
+            let decoderData = try decoder.decode(WeatherData.self, from: weatherData)
+            print(decoderData.weather[0].description)
+        } catch {
+            print(error)
         }
         
     }
