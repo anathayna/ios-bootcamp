@@ -8,17 +8,19 @@
 
 import Foundation
 
-struct WeatherData: Decodable {
+// Decodable & Encodable = Codable (typealias)
+
+struct WeatherData: Codable {
     let name: String
     let main: Main
     let weather: [Weather]
 }
 
-struct Main: Decodable {
+struct Main: Codable {
     let temp: Double
 }
 
-struct Weather: Decodable {
+struct Weather: Codable {
     let description: String
     let id: Int
 }
