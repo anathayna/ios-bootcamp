@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManagerDelegate {
+class WeatherViewController: UIViewController {
 
     @IBOutlet var conditionImageView: UIImageView!
     @IBOutlet var temperatureLabel: UILabel!
@@ -23,7 +23,13 @@ class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManag
         weatherManager.delegate = self
         searchTXTField.delegate = self
     }
+    
+}
 
+//MARK: - UITextFieldDelegate
+//create code snipped
+
+extension WeatherViewController : UITextFieldDelegate {
     @IBAction func searchPress(_ sender: UIButton) {
         searchTXTField.endEditing(true)
         print(searchTXTField.text!)
@@ -50,19 +56,19 @@ class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManag
         }
         searchTXTField.text = ""
     }
-    
+}
+
+//MARK: - WeatherManagerDelegate
+
+extension WeatherViewController: WeatherManagerDelegate {
     func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
         DispatchQueue.main.async {
             self.temperatureLabel.text = weather.temperatureString
             self.conditionImageView.image = UIImage(systemName: weather.conditionalName)
         }
-        
-        //weather
-        //print(weather.temperature)
     }
     
     func didFailWithError(error: Error) {
         print(error)
     }
-    
 }
