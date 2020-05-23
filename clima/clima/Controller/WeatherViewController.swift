@@ -1,9 +1,9 @@
 //
 //  ViewController.swift
-//  Clima
+//  clima
 //
-//  Created by Angela Yu on 01/09/2019.
-//  Copyright © 2019 App Brewery. All rights reserved.
+//  Created by Ana Thayna Franca on 07/05/20.
+//  Copyright © 2020 Ana Thayna Franca. All rights reserved.
 //
 
 import UIKit

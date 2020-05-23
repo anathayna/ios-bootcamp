@@ -92,10 +92,10 @@
 		36F3A1AA247837F500517734 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				36F3A1AB2478394200517734 /* ChatViewController.swift */,
-				36F3A1AD2478394200517734 /* LoginViewController.swift */,
-				36F3A1AC2478394200517734 /* RegisterViewController.swift */,
 				3606837D247836EA00778724 /* WelcomeViewController.swift */,
+				36F3A1AC2478394200517734 /* RegisterViewController.swift */,
+				36F3A1AD2478394200517734 /* LoginViewController.swift */,
+				36F3A1AB2478394200517734 /* ChatViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

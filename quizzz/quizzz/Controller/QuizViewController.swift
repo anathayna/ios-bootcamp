@@ -1,9 +1,9 @@
 //
 //  ViewController.swift
-//  Quizzler-iOS13
+//  quizzz
 //
-//  Created by Angela Yu on 12/07/2019.
-//  Copyright © 2019 The App Brewery. All rights reserved.
+//  Created by Ana Thayna Franca on 26/04/20.
+//  Copyright © 2020 Ana Thayna Franca. All rights reserved.
 //
 
 import UIKit

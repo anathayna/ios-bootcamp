@@ -1,6 +1,6 @@
 //
 //  SceneDelegate.swift
-//  i am poor
+//  ipoor
 //
 //  Created by Ana Thayna Franca on 23/03/20.
 //  Copyright © 2020 Ana Thayna Franca. All rights reserved.
