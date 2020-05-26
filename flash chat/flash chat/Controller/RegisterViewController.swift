@@ -20,7 +20,6 @@ class RegisterViewController: UIViewController {
                 if let e = error {
                     print(e.localizedDescription)
                 } else {
-                    //navigate to chat
                     self.performSegue(withIdentifier: "registerChat", sender: self)
                 }
             }
