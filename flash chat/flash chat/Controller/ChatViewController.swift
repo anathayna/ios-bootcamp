@@ -17,7 +17,7 @@ class ChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "⚡️FlashChat"
+        title = Constants.appName
         navigationItem.hidesBackButton = true
     }
     
@@ -25,8 +25,6 @@ class ChatViewController: UIViewController {
     }
     
     @IBAction func logOutPress(_ sender: UIBarButtonItem) {
-        //let firebaseAuth = Auth.auth()
-        //try firebaseAuth.signOut()
         do {
             try Auth.auth().signOut()
             navigationController?.popToRootViewController(animated: true)

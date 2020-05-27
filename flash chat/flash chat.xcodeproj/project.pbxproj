@@ -14,6 +14,7 @@
 		36068383247836F400778724 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36068382247836F400778724 /* Assets.xcassets */; };
 		36068386247836F400778724 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36068384247836F400778724 /* LaunchScreen.storyboard */; };
 		36B702D4247D6CA50085AFD3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36B702D3247D6CA50085AFD3 /* GoogleService-Info.plist */; };
+		36F037E0247EB918008D53A9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F037DF247EB917008D53A9 /* Constants.swift */; };
 		36F3A1AE2478394200517734 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F3A1AB2478394200517734 /* ChatViewController.swift */; };
 		36F3A1AF2478394200517734 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F3A1AC2478394200517734 /* RegisterViewController.swift */; };
 		36F3A1B02478394200517734 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F3A1AD2478394200517734 /* LoginViewController.swift */; };
@@ -31,6 +32,7 @@
 		36068385247836F400778724 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		36068387247836F400778724 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36B702D3247D6CA50085AFD3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		36F037DF247EB917008D53A9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		36F3A1AB2478394200517734 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		36F3A1AC2478394200517734 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		36F3A1AD2478394200517734 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				36068384247836F400778724 /* LaunchScreen.storyboard */,
 				36068387247836F400778724 /* Info.plist */,
 				36B702D3247D6CA50085AFD3 /* GoogleService-Info.plist */,
+				36F037DF247EB917008D53A9 /* Constants.swift */,
 			);
 			path = "flash chat";
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				3606837E247836EA00778724 /* WelcomeViewController.swift in Sources */,
 				36F3A1AF2478394200517734 /* RegisterViewController.swift in Sources */,
 				3606837A247836EA00778724 /* AppDelegate.swift in Sources */,
+				36F037E0247EB918008D53A9 /* Constants.swift in Sources */,
 				36F3A1AE2478394200517734 /* ChatViewController.swift in Sources */,
 				3606837C247836EA00778724 /* SceneDelegate.swift in Sources */,
 			);
