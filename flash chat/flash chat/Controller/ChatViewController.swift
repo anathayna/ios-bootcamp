@@ -35,22 +35,22 @@ class ChatViewController: UIViewController {
     }
     
     func loadMessages() {
-        messages = []
         
-        db.collection(Constants.FStore.collectionName).getDocuments { (querySnapshot, error) in
+        db.collection(Constants.FStore.collectionName).addSnapshotListener { (querySnapshot, error) in
+            
+            self.messages = []
+            
             if let e = error {
                 print("There was an issue saving data to firestore, \(e)")
             } else {
-                //querySnapshot?.documents[0].data()[Constants.FStore.senderField]
                 if let snapshotsDocs = querySnapshot?.documents {
                     for doc in snapshotsDocs {
-                        //print(doc.data())
                         let data = doc.data()
                         if let sender = data[Constants.FStore.senderField] as? String, let messageBody = data[Constants.FStore.bodyField] as? String {
                             let newMessage = Message(sender: sender, body: messageBody)
                             self.messages.append(newMessage)
                             
-                            DispatchQueue.main.sync {
+                            DispatchQueue.main.async {
                                 self.tableView.reloadData()
                             }
                         }
