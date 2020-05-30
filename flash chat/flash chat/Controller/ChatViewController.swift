@@ -16,11 +16,7 @@ class ChatViewController: UIViewController {
     
     let db = Firestore.firestore()
     
-    var messages: [Message] = [
-        Message(sender: "1@2.com", body: "Hey!"),
-        Message(sender: "a@b.com", body: "Hello!"),
-        Message(sender: "1@2.com", body: "What's up?")
-    ]
+    var messages: [Message] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +32,9 @@ class ChatViewController: UIViewController {
     
     func loadMessages() {
         
-        db.collection(Constants.FStore.collectionName).addSnapshotListener { (querySnapshot, error) in
+        db.collection(Constants.FStore.collectionName)
+            .order(by: Constants.FStore.dateField)
+            .addSnapshotListener { (querySnapshot, error) in
             
             self.messages = []
             
@@ -46,7 +44,9 @@ class ChatViewController: UIViewController {
                 if let snapshotsDocs = querySnapshot?.documents {
                     for doc in snapshotsDocs {
                         let data = doc.data()
-                        if let sender = data[Constants.FStore.senderField] as? String, let messageBody = data[Constants.FStore.bodyField] as? String {
+                        if let sender = data[
+                            Constants.FStore.senderField] as? String,
+                            let messageBody = data[Constants.FStore.bodyField] as? String {
                             let newMessage = Message(sender: sender, body: messageBody)
                             self.messages.append(newMessage)
                             
@@ -62,7 +62,11 @@ class ChatViewController: UIViewController {
     
     @IBAction func sendPressed(_ sender: UIButton) {
         if let messageBody = messageTextfield.text, let messageSender = Auth.auth().currentUser?.email {
-            db.collection(Constants.FStore.collectionName).addDocument(data: [Constants.FStore.senderField: messageSender, Constants.FStore.bodyField: messageBody]) { (error) in
+            db.collection(Constants.FStore.collectionName).addDocument(data: [
+                Constants.FStore.senderField: messageSender,
+                Constants.FStore.bodyField: messageBody,
+                Constants.FStore.dateField: Date().timeIntervalSince1970
+            ]) { (error) in
                 if let e = error {
                     print("There was an issue saving data to firestore, \(e)")
                 } else {
