@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:view controller lifecycle.xcodeproj">
+      location = "self:lifecycle.xcodeproj">
    </FileRef>
 </Workspace>

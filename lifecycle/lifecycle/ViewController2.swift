@@ -1,8 +1,8 @@
 //
 //  ViewController2.swift
-//  view controller lifecycle
+//  lifecycle
 //
-//  Created by Ana Thayna Franca on 30/05/20.
+//  Created by Ana Thayna Franca on 03/06/20.
 //  Copyright © 2020 Ana Thayna Franca. All rights reserved.
 //
 
