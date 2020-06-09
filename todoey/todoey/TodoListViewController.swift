@@ -32,7 +32,6 @@ class TodoListViewController: UITableViewController {
         } else {
             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         }
-        
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -43,8 +42,6 @@ class TodoListViewController: UITableViewController {
         let alert = UIAlertController(title: "add new todoey item", message: "", preferredStyle: .alert)
         
         let action = UIAlertAction(title: "add item", style: .default) { (action) in
-            //print("success!!")
-            //print(textField.text)
             self.itemArray.append(textField.text!)
             self.tableView.reloadData()
         }
@@ -52,7 +49,6 @@ class TodoListViewController: UITableViewController {
         alert.addTextField { (alertTextField) in
             alertTextField.placeholder = "create new item"
             textField = alertTextField
-            //print(alertTextField)
         }
         
         alert.addAction(action)
