@@ -28,6 +28,10 @@ class TodoListViewController: UITableViewController {
         newItem3.title = "Destroy Demogorgon"
         itemArray.append(newItem3)
         
+        if let items = defaults.array(forKey: "TodoListArray") as? [Item] {
+            itemArray = items
+        }
+        
     }
     
     //MARK: - tableView
@@ -46,14 +50,7 @@ class TodoListViewController: UITableViewController {
         //Ternary operator
         //value = condition ? valueIfTrue : valueIfFalse
         
-        //cell.accessoryType = item.done ? .checkmark : .none
-        cell.accessoryType = item.done == true ? .checkmark : .none
-        
-//        if item.done == true {
-//            cell.accessoryType = .checkmark
-//        } else {
-//            cell.accessoryType = .none
-//        }
+        cell.accessoryType = item.done ? .checkmark : .none
         
         return cell
     }
