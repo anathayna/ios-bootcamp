@@ -1,2 +1,2 @@
 # ios-bootcamp
-iOS App Development Bootcamp (iOS 13 &amp; Swift 5)
+iOS App Development Bootcamp
