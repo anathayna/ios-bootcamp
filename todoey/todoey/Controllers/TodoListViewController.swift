@@ -17,11 +17,7 @@ class TodoListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        searchBar.delegate = self
-        
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
-        
-//        let request : NSFetchRequest<Item> = Item.fetchRequest()
         
         loadItems()
     }
@@ -106,7 +102,6 @@ class TodoListViewController: UITableViewController {
     }
     
     func loadItems(with request: NSFetchRequest<Item> = Item.fetchRequest()) {
-//        let request : NSFetchRequest<Item> = Item.fetchRequest()
         
         do {
             itemArray = try context.fetch(request)
@@ -125,24 +120,20 @@ extension TodoListViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let request : NSFetchRequest<Item> = Item.fetchRequest()
-//        request.predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
-        let predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
-//        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
-        let sortDescriptor = NSSortDescriptor(key: "title", ascending: true)
-        
-        request.predicate = predicate
-        request.sortDescriptors = [sortDescriptor]
+        request.predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
+        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
         
         loadItems(with: request)
-        
-//        do {
-//            itemArray = try context.fetch(request)
-//        } catch {
-//            print("error fetching data request from request \(error)")
-//        }
-        
-//        tableView.reloadData()
-        
-//        print(searchBar.text!)
+
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text?.count == 0 {
+            loadItems()
+            
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
+        }
     }
 }
