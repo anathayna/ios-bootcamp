@@ -17,6 +17,8 @@ class CategoryViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loadCategories()
     }
     
     
@@ -38,7 +40,26 @@ class CategoryViewController: UITableViewController {
     // MARK: - Data Manipulation Methods
     
     func saveCategories() {
+        do {
+            try context.save()
+        } catch {
+            print("error saving category \(error)")
+        }
         
+        tableView.reloadData()
+    }
+    
+    func loadCategories() {
+        
+        let request: NSFetchRequest<Category> = Category.fetchRequest()
+        
+        do {
+            categories = try context.fetch(request)
+        } catch {
+            print("error loading categories \(error)")
+        }
+        
+        tableView.reloadData()
     }
 
     @IBAction func addButtonPress(_ sender: UIBarButtonItem) {
