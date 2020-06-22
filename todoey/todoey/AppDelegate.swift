@@ -19,9 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         do {
             let realm = try Realm()
-//            try realm.write {
-//                realm.add(data)
-            }
         } catch {
             print("error initialising new realm \(error)")
         }
@@ -38,12 +35,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
-        saveContext()
+        self.saveContext()
     }
     
     // MARK: - Core Data stack
 
-    var persistentContainer: NSPersistentContainer = {
+    lazy var persistentContainer: NSPersistentContainer = {
 
         let container = NSPersistentContainer(name: "DataModel")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
@@ -68,3 +65,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+}
