@@ -16,6 +16,7 @@
 		363F851C24A102E700B2824D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363F851B24A102E700B2824D /* Item.swift */; };
 		363F851E24A102F000B2824D /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363F851D24A102F000B2824D /* Category.swift */; };
 		36727C0824991C5800EC133E /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36727C0724991C5800EC133E /* CategoryViewController.swift */; };
+		36DF2E8224AB951600CF1654 /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DF2E8124AB951600CF1654 /* SwipeViewController.swift */; };
 		884603E7066CB61F12E9DD6A /* Pods_todoey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B20E6E6A14442AACA5E15D70 /* Pods_todoey.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		363F851B24A102E700B2824D /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		363F851D24A102F000B2824D /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		36727C0724991C5800EC133E /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		36DF2E8124AB951600CF1654 /* SwipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeViewController.swift; sourceTree = "<group>"; };
 		B20E6E6A14442AACA5E15D70 /* Pods_todoey.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_todoey.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCF40560158141A3AB91CFED /* Pods-todoey.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-todoey.debug.xcconfig"; path = "Target Support Files/Pods-todoey/Pods-todoey.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,6 +72,7 @@
 			children = (
 				363612F4248C1D6500DCC4E6 /* TodoListViewController.swift */,
 				36727C0724991C5800EC133E /* CategoryViewController.swift */,
+				36DF2E8124AB951600CF1654 /* SwipeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				363612F1248C1D6500DCC4E6 /* AppDelegate.swift in Sources */,
 				363F851C24A102E700B2824D /* Item.swift in Sources */,
 				363612F3248C1D6500DCC4E6 /* SceneDelegate.swift in Sources */,
+				36DF2E8224AB951600CF1654 /* SwipeViewController.swift in Sources */,
 				363F851E24A102F000B2824D /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
