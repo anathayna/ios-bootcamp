@@ -20,7 +20,7 @@ class CategoryViewController: UITableViewController {
         
         loadCategories()
         
-        tableView.rowHeight = 40.0
+        tableView.rowHeight = 45.0
     }
     
     
@@ -112,13 +112,32 @@ extension CategoryViewController: SwipeTableViewCellDelegate {
 
         let deleteAction = SwipeAction(style: .destructive, title: "delete") { action, indexPath in
             // handle action by updating model with deletion
-            print("item deleted")
+            //print("item deleted")
+            
+            if let categoryForDeletion = self.categories?[indexPath.row] {
+                do {
+                    try self.realm.write {
+                        self.realm.delete(categoryForDeletion)
+                    }
+                } catch {
+                    print("error deleting category, \(error)")
+                }
+                
+                //tableView.reloadData()
+            }
         }
 
         // customize the action appearance
         deleteAction.image = UIImage(named: "delete-icon")
 
         return [deleteAction]
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
+        var options = SwipeOptions()
+        options.expansionStyle = .destructive
+        //options.transitionStyle = .border
+        return options
     }
     
 }
