@@ -15,7 +15,7 @@ DEPENDENCIES:
   - SwipeCellKit
 
 SPEC REPOS:
-  trunk:
+  https://cdn.cocoapods.org/:
     - Realm
     - RealmSwift
     - SwipeCellKit
@@ -38,4 +38,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 4bdfca2fa38e8ebc8bb2674d2f43b1f634dd56b7
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.3
