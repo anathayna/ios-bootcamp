@@ -108,7 +108,6 @@ class CategoryViewController: SwipeViewController {
         let action = UIAlertAction(title: "add", style: .default) { (action) in
             let newCategory = Category()
             newCategory.name = textField.text!
-            newCategory.colour = UIColor.randomFlat
             
             self.save(category: newCategory)
         }
