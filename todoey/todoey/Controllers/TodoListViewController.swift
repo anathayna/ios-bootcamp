@@ -25,7 +25,6 @@ class TodoListViewController: SwipeViewController {
         super.viewDidLoad()
         
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
-        
     }
     
     
@@ -43,13 +42,10 @@ class TodoListViewController: SwipeViewController {
         if let item = todoItems?[indexPath.row] {
             cell.textLabel?.text = item.title
             
-            if let colour = FlatSkyBlue().darken(byPercentage: CGFloat(indexPath.row)/CGFloat(todoItems!.count)) {
+            if let colour = UIColor(hexString: selectedCategory!.colour)?.darken(byPercentage: CGFloat(indexPath.row)/CGFloat(todoItems!.count)) {
                 cell.backgroundColor = colour
                 cell.textLabel?.textColor = ContrastColorOf(colour, returnFlat: true)
             }
-            
-//            print("version 1: \(CGFloat(indexPath.row/todoItems!.count))")
-//            print("version 2: \(CGFloat(indexPath.row)/CGFloat(todoItems!.count))")
             
             //Ternary operator
             //value = condition ? valueIfTrue : valueIfFalse
@@ -61,6 +57,7 @@ class TodoListViewController: SwipeViewController {
         
         return cell
     }
+    
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -147,13 +144,12 @@ class TodoListViewController: SwipeViewController {
 extension TodoListViewController: UISearchBarDelegate {
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
         todoItems = todoItems?.filter("title CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: "dateCreated", ascending: true)
-        
         tableView.reloadData()
 
     }
 
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text?.count == 0 {
             loadItems()
