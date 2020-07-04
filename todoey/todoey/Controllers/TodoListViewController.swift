@@ -29,8 +29,8 @@ class TodoListViewController: SwipeViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         if let hexColor = selectedCategory?.colour {
-            
             title = selectedCategory!.name
             
             guard let navBar = navigationController?.navigationBar else { fatalError("navigation controller does not exist") }
@@ -102,8 +102,8 @@ class TodoListViewController: SwipeViewController {
         var textField = UITextField()
         
         let alert = UIAlertController(title: "add new todoey item", message: "", preferredStyle: .alert)
+        
         let action = UIAlertAction(title: "add item", style: .default) { (action) in
-            
             if let currentCategory = self.selectedCategory {
                 do {
                     try self.realm.write {
@@ -116,7 +116,6 @@ class TodoListViewController: SwipeViewController {
                     print("error saving new item \(error)")
                 }
             }
-            
             self.tableView.reloadData()
         }
         
@@ -134,11 +133,10 @@ class TodoListViewController: SwipeViewController {
     //MARK: - Model Manipulation Methods
     
     func loadItems() {
-
         todoItems = selectedCategory?.items.sorted(byKeyPath: "title", ascending: true)
-        
         tableView.reloadData()
     }
+    
     
     override func updateModel(at indexPath: IndexPath) {
         if let item = todoItems?[indexPath.row] {
@@ -161,16 +159,15 @@ class TodoListViewController: SwipeViewController {
 extension TodoListViewController: UISearchBarDelegate {
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        todoItems = todoItems?.filter("title CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: "dateCreated", ascending: true)
+        todoItems = todoItems?.filter("title CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: "title", ascending: true)
         tableView.reloadData()
-
     }
 
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text?.count == 0 {
             loadItems()
-
+            
             DispatchQueue.main.async {
                 searchBar.resignFirstResponder()
             }
