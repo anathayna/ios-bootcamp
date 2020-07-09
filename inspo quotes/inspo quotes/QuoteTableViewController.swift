@@ -32,58 +32,51 @@ class QuoteTableViewController: UITableViewController {
         super.viewDidLoad()
     }
 
+    
+    
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return quotesToShow.count
+        return quotesToShow.count + 1
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "QuoteCell", for: indexPath)
 
-        cell.textLabel?.text = quotesToShow[indexPath.row]
-        cell.textLabel?.numberOfLines = 0
+        if indexPath.row < quotesToShow.count {
+            cell.textLabel?.text = quotesToShow[indexPath.row]
+            cell.textLabel?.numberOfLines = 0
+        } else {
+            cell.textLabel?.text = "$$$ get more quotes $$$"
+            cell.textLabel?.textAlignment = .center
+            cell.textLabel?.textColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+            cell.accessoryType = .disclosureIndicator
+        }
 
         return cell
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    
+    
+    
+    // MARK: - Table view delegate methods
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == quotesToShow.count {
+            //print("buy quotes clicked")
+            byPremiumQuotes()
         }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
     
     
     
+    // MARK: - in-app purchases methods
+    
+    func byPremiumQuotes() {
+        
+    }
+        
     @IBAction func restorePressed(_ sender: UIBarButtonItem) {
         
     }
