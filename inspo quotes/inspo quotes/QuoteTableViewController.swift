@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import StoreKit
 
-class QuoteTableViewController: UITableViewController {
+class QuoteTableViewController: UITableViewController, SKPaymentTransactionObserver {
+    
+    let productID = "com.anathayna.inspo-quotes"
+    //"com.londonappbrewery.InspoQuotes.PremiumQuotes"
     
     var quotesToShow = [
         "Our greatest glory is not in never falling, but in rising every time we fall. — Confucius",
@@ -30,6 +34,7 @@ class QuoteTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        SKPaymentQueue.default().add(self)
     }
 
     
@@ -62,7 +67,6 @@ class QuoteTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == quotesToShow.count {
-            //print("buy quotes clicked")
             byPremiumQuotes()
         }
         
@@ -74,7 +78,23 @@ class QuoteTableViewController: UITableViewController {
     // MARK: - in-app purchases methods
     
     func byPremiumQuotes() {
-        
+        if SKPaymentQueue.canMakePayments() {
+            let paymentRequest = SKMutablePayment()
+            paymentRequest.productIdentifier = productID
+            SKPaymentQueue.default().add(paymentRequest)
+        } else {
+            print("user can't make payments")
+        }
+    }
+    
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        for transaction in transactions {
+            if transaction.transactionState == .purchased {
+                print("transaction successful!")
+            } else if transaction.transactionState == .failed {
+                print("transaction failed!")
+            }
+        }
     }
         
     @IBAction func restorePressed(_ sender: UIBarButtonItem) {
