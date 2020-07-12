@@ -91,6 +91,7 @@ class QuoteTableViewController: UITableViewController, SKPaymentTransactionObser
             let paymentRequest = SKMutablePayment()
             paymentRequest.productIdentifier = productID
             SKPaymentQueue.default().add(paymentRequest)
+            
         } else {
             print("user can't make payments")
         }
@@ -101,7 +102,6 @@ class QuoteTableViewController: UITableViewController, SKPaymentTransactionObser
             if transaction.transactionState == .purchased {
                 print("transaction successful!")
                 showPremiumQuotes()
-                
                 SKPaymentQueue.default().finishTransaction(transaction)
                 
             } else if transaction.transactionState == .failed {
