@@ -34,14 +34,24 @@ struct CalculatorLogic {
         return nil
     }
     
-    private func performTwoNumCalculation(n2: Double) -> Double {
+    private func performTwoNumCalculation(n2: Double) -> Double? {
         if let n1 = intermediateCalculation?.n1,
             let operation = intermediateCalculation?.calcMethod {
             
-            if operation == "+" {
+            switch operation {
+            case "+":
                 return n1 + n2
+            case "-":
+                return n1 - n2
+            case "×":
+                return n1 * n2
+            case "÷":
+                return n1 / n2
+            default:
+                fatalError("the operation passed in does not match any of the case")
             }
         }
+        return nil
     }
     
 }
