@@ -27,6 +27,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func calcButtonPressed(_ sender: UIButton) {
+        
         isFinishedTypingNumber = true
         calculator.setNumber(displayValue)
         
@@ -39,6 +40,7 @@ class ViewController: UIViewController {
 
     
     @IBAction func numButtonPressed(_ sender: UIButton) {
+        
         if let numValue = sender.currentTitle {
             
             if isFinishedTypingNumber {
