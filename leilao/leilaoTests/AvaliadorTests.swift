@@ -1,18 +1,25 @@
 //
-//  ViewController.swift
-//  leilao
+//  AvaliadorTests.swift
+//  leilaoTests
 //
-//  Created by Ana Thayna Franca on 17/07/20.
+//  Created by Ana Thayna Franca on 27/07/20.
 //  Copyright © 2020 Ana Thayna Franca. All rights reserved.
 //
 
-import UIKit
+import XCTest
+@testable import leilao
 
-class ViewController: UIViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+class AvaliadorTests: XCTestCase {
+
+    override func setUpWithError() throws {
         
+    }
+
+    override func tearDownWithError() throws {
+        
+    }
+    
+    func testEntenderLancesEmOrdemCrescente() {
         let joao = Usuario(nome: "Joao")
         let jose = Usuario(nome: "Jose")
         let maria = Usuario(nome: "Maria")
@@ -25,12 +32,8 @@ class ViewController: UIViewController {
         let leiloeiro = Avaliador()
         leiloeiro.avalia(leilao: leilao)
         
-        let maior = 400.0
-        let menor = 250.0
-        
-        print(leiloeiro.maiorLance() == maior)
-        print(leiloeiro.menorLance() == menor)
+        XCTAssertEqual(250.0, leiloeiro.menorLance())
+        XCTAssertEqual(400.0, leiloeiro.maiorLance())
     }
 
 }
-

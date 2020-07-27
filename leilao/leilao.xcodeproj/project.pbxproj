@@ -20,6 +20,7 @@
 		36B61E3524C1F176001EE9E1 /* Lance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B61E3124C1F175001EE9E1 /* Lance.swift */; };
 		36B61E3624C1F176001EE9E1 /* Leilao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B61E3224C1F176001EE9E1 /* Leilao.swift */; };
 		36B61E3724C1F176001EE9E1 /* Avaliador.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B61E3324C1F176001EE9E1 /* Avaliador.swift */; };
+		36C7303824CE7D77001B55AD /* AvaliadorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C7303724CE7D77001B55AD /* AvaliadorTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		36B61E3124C1F175001EE9E1 /* Lance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lance.swift; sourceTree = "<group>"; };
 		36B61E3224C1F176001EE9E1 /* Leilao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Leilao.swift; sourceTree = "<group>"; };
 		36B61E3324C1F176001EE9E1 /* Avaliador.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Avaliador.swift; sourceTree = "<group>"; };
+		36C7303724CE7D77001B55AD /* AvaliadorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvaliadorTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 			children = (
 				36B61E1624C1F111001EE9E1 /* leilaoTests.swift */,
 				36B61E1824C1F111001EE9E1 /* Info.plist */,
+				36C7303724CE7D77001B55AD /* AvaliadorTests.swift */,
 			);
 			path = leilaoTests;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36B61E1724C1F111001EE9E1 /* leilaoTests.swift in Sources */,
+				36C7303824CE7D77001B55AD /* AvaliadorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
