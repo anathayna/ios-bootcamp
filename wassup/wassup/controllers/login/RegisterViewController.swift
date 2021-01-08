@@ -186,19 +186,36 @@ class RegisterViewController: UIViewController {
                 strongSelf.alertUserRegisterError(message: "user account for that email address already exists")
                 return
             }
-        })
-        
-        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { authResult, error in
             
-            guard authResult != nil, error == nil else {
-                print("error creating user")
-                return
-            }
-            
-            DatabaseManager.shared.insertUser(with: ChatAppUser(name: name,
-                                                                email: email))
-            
-            self.navigationController?.dismiss(animated: true, completion: nil)
+            FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { authResult, error in
+                
+                guard authResult != nil, error == nil else {
+                    print("error creating user")
+                    return
+                }
+                
+                let chatUser = ChatAppUser(name: name, email: email)
+                DatabaseManager.shared.insertUser(with: chatUser, completion: { success in
+                    if success {
+                        guard let image = strongSelf.imageView.image,
+                              let data = image.pngData() else { return }
+                        
+                        let filename = chatUser.profilePicFileName
+                        
+                        StorageManager.shared.uploadProfilePicture(with: data, fileName: filename, completion: { result in
+                            switch result {
+                            case .success(let downloadUrl):
+                                UserDefaults.standard.set(downloadUrl, forKey: "profile_pic_url")
+                                print(downloadUrl)
+                            case .failure(let error):
+                                print("storage manager error: \(error)")
+                            }
+                        })
+                    }
+                })
+                
+                strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+            })
         })
     }
     

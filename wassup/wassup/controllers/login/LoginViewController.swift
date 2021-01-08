@@ -273,7 +273,12 @@ extension LoginViewController: LoginButtonDelegate {
             
             DatabaseManager.shared.userExists(with: email, completion: { exists in
                 if !exists {
-                    DatabaseManager.shared.insertUser(with: ChatAppUser(name: userName, email: email))
+                    let chatUser = ChatAppUser(name: userName, email: email)
+                    DatabaseManager.shared.insertUser(with: chatUser, completion: { success in
+                        if success {
+                            // upload image
+                        }
+                    })
                 }
             })
             
