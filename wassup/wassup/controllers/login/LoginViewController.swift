@@ -276,11 +276,14 @@ extension LoginViewController: LoginButtonDelegate {
                         if success {
                             guard let url = URL(string: pictureUrl) else { return }
                             
-                            URLSession.shared.dataTask(with: url) { data, _, _ in
-                                guard let data = data else { return }
+                            print("downloading data from facebook image")
+                            
+                            URLSession.shared.dataTask(with: url, completionHandler: { data, _, _ in
+                                guard let data = data else { print("failed to get data from facebook"); return }
+                                
+                                print("got data from facebook, uploading...")
                                 
                                 let filename = chatUser.profilePicFileName
-                                
                                 StorageManager.shared.uploadProfilePicture(with: data, fileName: filename, completion: { result in
                                     switch result {
                                     case .success(let downloadUrl):
@@ -290,7 +293,7 @@ extension LoginViewController: LoginButtonDelegate {
                                         print("storage manager error: \(error)")
                                     }
                                 })
-                            }
+                            }).resume()
                         }
                     })
                 }
