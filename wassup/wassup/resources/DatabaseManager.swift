@@ -11,6 +11,12 @@ import FirebaseDatabase
 final class DatabaseManager {
     static let shared = DatabaseManager()
     private let database = Database.database().reference()
+    
+    static func safeEmail(email: String) -> String {
+        var safeEmail = email.replacingOccurrences(of: ".", with: "-")
+        safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")
+        return safeEmail
+    }
 }
 
 // MARK: - account management
@@ -44,6 +50,16 @@ extension DatabaseManager {
                 completion(false)
                 return
             }
+            
+            self.database.child("users").observeSingleEvent(of: .value, with: { snapshot in
+                if var userCollection = snapshot.value as? [[String:String]] {
+                    
+                }
+                else {
+                    
+                }
+            })
+            
             completion(true)
         })
     }
