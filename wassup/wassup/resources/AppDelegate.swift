@@ -54,9 +54,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         guard let email = user.profile.email,
               let name = user.profile.name else { return }
         
-        DatabaseManager.shared.userExists(with: email) { exists in
+        DatabaseManager.shared.userExists(with: email, completion: { exists in
             if !exists {
                 let chatUser = ChatAppUser(name: name, email: email)
+                
                 DatabaseManager.shared.insertUser(with: chatUser, completion: { success in
                     if success {
                         if user.profile.hasImage {
@@ -80,7 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                     }
                 })
             }
-        }
+        })
         
         guard let authentication = user.authentication else {
             print("missing out object off of google user")
