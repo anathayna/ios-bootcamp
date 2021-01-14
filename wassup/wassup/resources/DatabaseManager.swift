@@ -19,6 +19,10 @@ final class DatabaseManager {
     }
 }
 
+public enum DatabaseError: Error {
+    case failedToFetch
+}
+
 // MARK: - account management
 
 extension DatabaseManager {
@@ -52,15 +56,44 @@ extension DatabaseManager {
             }
             
             self.database.child("users").observeSingleEvent(of: .value, with: { snapshot in
-                if var userCollection = snapshot.value as? [[String:String]] {
+                if var usersCollection = snapshot.value as? [[String:String]] {
+                    let newElement = [
+                        "name": user.name,
+                        "email": user.email
+                    ]
+                    usersCollection.append(newElement)
                     
+                    self.database.child("users").setValue(usersCollection, withCompletionBlock: { error, _ in
+                        guard error == nil else { completion(false); return }
+                        completion(true)
+                    })
                 }
                 else {
+                    let newCollection: [[String:String]] = [
+                        [
+                            "name": user.name,
+                            "email": user.email
+                        ]
+                    ]
                     
+                    self.database.child("users").setValue(newCollection, withCompletionBlock: { error, _ in
+                        guard error == nil else { completion(false); return }
+                        
+                        completion(true)
+                    })
                 }
             })
+        })
+    }
+    
+    public func getAllUsers(completion: @escaping (Result<[[String:String]], Error>) -> Void) {
+        database.child("users").observeSingleEvent(of: .value, with: { snapshot in
+            guard let value = snapshot.value as? [[String:String]] else {
+                completion(.failure(DatabaseError.failedToFetch))
+                return
+            }
             
-            completion(true)
+            completion(.success(value))
         })
     }
 }
