@@ -98,17 +98,24 @@ extension DatabaseManager {
     }
 }
 
-struct ChatAppUser {
-    let name: String
-    let email: String
+//MARK: - sending messages
+
+extension DatabaseManager {
     
-    var safeEmail: String {
-        var safeEmail = email.replacingOccurrences(of: ".", with: "-")
-        safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")
-        return safeEmail
+    public func createNewConversation(with otherUserEmail: String, firstMessage: Message, completion: @escaping (Bool) -> Void) {
+        
     }
     
-    var profilePicFileName: String {
-        return "\(safeEmail)_profile_pic.png"
+    public func gelAllConversation(for email: String, completion: @escaping (Result<String, Error>) -> Void) {
+        
     }
+    
+    public func gelAllMessages(with id: String, completion: @escaping (Result<String, Error>) -> Void) {
+        
+    }
+    
+    public func sendMessage(to conversation: String, message: Message, completion: @escaping (Bool) -> Void) {
+        
+    }
+    
 }

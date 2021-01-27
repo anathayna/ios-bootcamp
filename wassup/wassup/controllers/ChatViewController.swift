@@ -29,9 +29,14 @@ class ChatViewController: MessagesViewController {
     public let otherUserEmail: String
     public var isNewConversation = false
     private var messages = [Message]()
-    private let selfSender = Sender(photoUrl: "",
-                                    senderId: "1",
-                                    displayName: "will smith")
+    
+    private var selfSender: Sender = { 
+        guard let email = UserDefaults.standard.value(forKey: "email") else { return nil }
+        
+        Sender(photoUrl: "",
+               senderId: email,
+               displayName: "will smith")
+    }
     
     init(with email: String) {
         self.otherUserEmail = email
@@ -39,26 +44,18 @@ class ChatViewController: MessagesViewController {
     }
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        
         view.backgroundColor = .purple
-        
-        messages.append(Message(sender: selfSender,
-                                messageId: "1",
-                                sentDate: Date(),
-                                kind: .text("hello world message")))
-        
-        messages.append(Message(sender: selfSender,
-                                messageId: "1",
-                                sentDate: Date(),
-                                kind: .text("hello world message hello world message hello world message")))
         
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
         messageInputBar.delegate = self
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        messageInputBar.inputTextView.becomeFirstResponder()
     }
 
 }
@@ -66,10 +63,16 @@ class ChatViewController: MessagesViewController {
 extension ChatViewController: InputBarAccessoryViewDelegate {
     
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
-        guard !text.replacingOccurrences(of: " ", with: "").isEmpty else { return }
+        guard !text.replacingOccurrences(of: " ", with: "").isEmpty,
+              let selfSender = self.selfSender else { return }
         
         if isNewConversation {
+            let message = Message(sender: selfSender,
+                                  messageId: <#T##String#>,
+                                  sentDate: Date(),
+                                  kind: .text(text))
             
+            DatabaseManager.shared.createNewConversation(with: otherUserEmail, firstMessage: message, completion: <#T##(Bool) -> Void#>)
         }
         else {
             
@@ -81,7 +84,12 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
 extension ChatViewController: MessagesDataSource, MessagesLayoutDelegate, MessagesDisplayDelegate {
     
     func currentSender() -> SenderType {
-        return selfSender
+        if let sender = selfSender {
+            return sender
+        }
+        
+        fatalError("self sender is nil, email should be cached")
+        return Sender(photoUrl: "", senderId: "12", displayName: "")
     }
     
     func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
