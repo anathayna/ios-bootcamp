@@ -8,11 +8,14 @@
 import UIKit
 import CoreML
 import Vision
+import Alamofire
+import SwiftyJSON
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet private weak var imageView: UIImageView?
     
+    let wikipediaURL = "https://en.wikipedia.org/w/api.php"
     private let imagePicker = UIImagePickerController()
 
     override func viewDidLoad() {
@@ -25,7 +28,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let userPickerImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
-            guard let convertedCIImage = CIImage(image: userPickerImage) else { fatalError("cannot convert CGImage") }
+            guard let convertedCIImage = CIImage(image: userPickerImage) else { fatalError("cannot convert CIImage") }
             detec(image: convertedCIImage)
             imageView?.image = userPickerImage
         }
@@ -39,8 +42,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         
         let request = VNCoreMLRequest(model: model) { (request, error) in
-            let classification = request.results?.first as? VNClassificationObservation
-            self.navigationItem.title = classification?.identifier
+            guard let classification = request.results?.first as? VNClassificationObservation else { fatalError("could not classify image") }
+            self.navigationItem.title = classification.identifier
+            self.requestInfo(flowerName: classification.identifier)
         }
         
         let handler = VNImageRequestHandler(ciImage: image)
@@ -51,6 +55,28 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         catch {
             print(error)
+        }
+    }
+    
+    func requestInfo(flowerName: String) {
+        let params : [String:String] = [
+            
+            "format" : "json",
+            "action" : "query",
+            "prop"   : "extracts",
+            "exintro" : "",
+            "explaintext" : "",
+            "titles"  : flowerName,
+            "indexpageids" : "",
+            "redirects" : "1"
+        
+        ]
+        
+        Alamofire.request(wikipediaURL, method: .get, parameters: params).responseJSON { (response) in
+            if response.result.isSuccess {
+                print("got the wikipedia info")
+                print(response)
+            }
         }
     }
     
