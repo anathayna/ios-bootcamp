@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		361B59F526A6547200DB5543 /* FlowerClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 361B59F426A6547200DB5543 /* FlowerClassifier.mlmodel */; };
 		36CCB5E9269FC45200D0AC79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CCB5E8269FC45200D0AC79 /* AppDelegate.swift */; };
 		36CCB5EB269FC45200D0AC79 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CCB5EA269FC45200D0AC79 /* SceneDelegate.swift */; };
 		36CCB5ED269FC45200D0AC79 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CCB5EC269FC45200D0AC79 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		361B59F426A6547200DB5543 /* FlowerClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FlowerClassifier.mlmodel; sourceTree = "<group>"; };
 		36CCB5E5269FC45200D0AC79 /* what flower.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "what flower.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		36CCB5E8269FC45200D0AC79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36CCB5EA269FC45200D0AC79 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +39,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		361B59F626A655B800DB5543 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				361B59F426A6547200DB5543 /* FlowerClassifier.mlmodel */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		361B59F726A655C400DB5543 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				36CCB5EE269FC45200D0AC79 /* Main.storyboard */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		361B59F826A655CA00DB5543 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				36CCB5EC269FC45200D0AC79 /* ViewController.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		361B59F926A655FC00DB5543 /* config */ = {
+			isa = PBXGroup;
+			children = (
+				36CCB5E8269FC45200D0AC79 /* AppDelegate.swift */,
+				36CCB5EA269FC45200D0AC79 /* SceneDelegate.swift */,
+				36CCB5F1269FC45300D0AC79 /* Assets.xcassets */,
+				36CCB5F3269FC45300D0AC79 /* LaunchScreen.storyboard */,
+			);
+			path = config;
+			sourceTree = "<group>";
+		};
 		36CCB5DC269FC45200D0AC79 = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +93,11 @@
 		36CCB5E7269FC45200D0AC79 /* what flower */ = {
 			isa = PBXGroup;
 			children = (
-				36CCB5E8269FC45200D0AC79 /* AppDelegate.swift */,
-				36CCB5EA269FC45200D0AC79 /* SceneDelegate.swift */,
-				36CCB5EC269FC45200D0AC79 /* ViewController.swift */,
-				36CCB5EE269FC45200D0AC79 /* Main.storyboard */,
-				36CCB5F1269FC45300D0AC79 /* Assets.xcassets */,
-				36CCB5F3269FC45300D0AC79 /* LaunchScreen.storyboard */,
 				36CCB5F6269FC45300D0AC79 /* Info.plist */,
+				361B59F926A655FC00DB5543 /* config */,
+				361B59F626A655B800DB5543 /* model */,
+				361B59F726A655C400DB5543 /* view */,
+				361B59F826A655CA00DB5543 /* controller */,
 			);
 			path = "what flower";
 			sourceTree = "<group>";
@@ -139,6 +174,7 @@
 			files = (
 				36CCB5ED269FC45200D0AC79 /* ViewController.swift in Sources */,
 				36CCB5E9269FC45200D0AC79 /* AppDelegate.swift in Sources */,
+				361B59F526A6547200DB5543 /* FlowerClassifier.mlmodel in Sources */,
 				36CCB5EB269FC45200D0AC79 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
