@@ -14,6 +14,7 @@ import SwiftyJSON
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet private weak var imageView: UIImageView?
+    @IBOutlet private weak var label: UILabel?
     
     let wikipediaURL = "https://en.wikipedia.org/w/api.php"
     private let imagePicker = UIImagePickerController()
@@ -75,7 +76,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         Alamofire.request(wikipediaURL, method: .get, parameters: params).responseJSON { (response) in
             if response.result.isSuccess {
                 print("got the wikipedia info")
-                print(response)
+                print(JSON(response.result.value))
+                
+                let flowerJSON : JSON = JSON(response.result.value)
+                let pageid = flowerJSON["query"]["pageids"][0].stringValue
+                let flowerDescription = flowerJSON["query"]["pages"][pageid]["extract"].stringValue
+                
+                self.label?.text = flowerDescription
             }
         }
     }

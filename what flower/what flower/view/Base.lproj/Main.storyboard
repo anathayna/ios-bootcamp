@@ -17,16 +17,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mLO-Qw-lNP">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="414"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="mLO-Qw-lNP" secondAttribute="height" multiplier="1:1" id="YEj-0q-B2r"/>
+                                </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="S75-rP-liE">
+                                <rect key="frame" x="20" y="522" width="374" height="320"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="mLO-Qw-lNP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1u4-Kg-bUS"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mLO-Qw-lNP" secondAttribute="trailing" id="Sfp-7w-N2U"/>
-                            <constraint firstItem="mLO-Qw-lNP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="VWT-sh-fCB"/>
-                            <constraint firstAttribute="bottom" secondItem="mLO-Qw-lNP" secondAttribute="bottom" id="wLu-ul-QlP"/>
+                            <constraint firstItem="mLO-Qw-lNP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9et-EO-bw9"/>
+                            <constraint firstItem="mLO-Qw-lNP" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="9xP-do-OKS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="S75-rP-liE" secondAttribute="trailing" constant="20" id="NFj-0J-FYT"/>
+                            <constraint firstItem="mLO-Qw-lNP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="cTN-CE-umU"/>
+                            <constraint firstItem="S75-rP-liE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="d5i-kk-Hf1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="S75-rP-liE" secondAttribute="bottom" constant="20" id="gMm-LF-EBv"/>
+                            <constraint firstItem="S75-rP-liE" firstAttribute="top" secondItem="mLO-Qw-lNP" secondAttribute="bottom" constant="20" id="jcq-1Z-nVu"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Po6-AG-PUe">
@@ -38,6 +50,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="mLO-Qw-lNP" id="uoG-1e-0Sj"/>
+                        <outlet property="label" destination="S75-rP-liE" id="XNb-HS-c8u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
